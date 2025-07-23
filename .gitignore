@@ -12,6 +12,7 @@
 .yarnrc.local
 
 # Build & Cache Directories
+node_modules/
 .next/
 out/
 build/
