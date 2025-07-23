@@ -1,0 +1,474 @@
+/**
+ * Global CSS with Earth-toned Design System
+ * Custom CSS variables for light/dark theme support
+ */
+
+@import 'tailwindcss/base';
+@import 'tailwindcss/components';
+@import 'tailwindcss/utilities';
+
+/* Font imports */
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Merriweather:wght@400;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Source+Code+Pro:wght@400;500;600&display=swap');
+
+/* CSS Variables for Theme System */
+:root {
+  /* Light theme earth tones */
+  --background: 35 18 94; /* #f8f5f0 - Warm beige */
+  --foreground: 30 22 10; /* #1c1410 - Dark brown */
+  
+  --card: 40 20 98; /* #fffdfA - Off white */
+  --card-foreground: 30 22 10; /* #1c1410 - Dark brown */
+  
+  --popover: 40 20 98; /* #fffdfA - Off white */
+  --popover-foreground: 30 22 10; /* #1c1410 - Dark brown */
+  
+  --primary: 122 47 32; /* #2e7d32 - Forest green */
+  --primary-foreground: 0 0 100; /* White */
+  
+  --secondary: 118 76 91; /* #e8f5e9 - Light green */
+  --secondary-foreground: 122 47 32; /* #2e7d32 - Forest green */
+  
+  --muted: 35 18 93; /* #f3f0eb - Light beige */
+  --muted-foreground: 30 18 32; /* #5c534a - Medium brown */
+  
+  --accent: 117 34 79; /* #c8e6c9 - Pale green */
+  --accent-foreground: 122 47 32; /* #2e7d32 - Forest green */
+  
+  --destructive: 0 84 60; /* #dc2626 - Red */
+  --destructive-foreground: 0 0 100; /* White */
+  
+  --border: 35 18 85; /* #e5dcd3 - Light brown */
+  --input: 35 18 85; /* #e5dcd3 - Light brown */
+  --ring: 122 47 32; /* #2e7d32 - Forest green */
+  
+  /* Chart colors */
+  --chart-1: 122 47 32;
+  --chart-2: 117 34 79;
+  --chart-3: 118 76 91;
+  --chart-4: 30 18 32;
+  --chart-5: 30 22 10;
+  
+  /* Sidebar colors */
+  --sidebar-background: 35 18 95;
+  --sidebar-foreground: 30 22 10;
+  --sidebar-primary: 122 47 32;
+  --sidebar-primary-foreground: 0 0 100;
+  --sidebar-accent: 117 34 79;
+  --sidebar-accent-foreground: 122 47 32;
+  --sidebar-border: 35 18 88;
+  --sidebar-ring: 122 47 32;
+  
+  /* Typography */
+  --font-sans: 'Montserrat', sans-serif;
+  --font-serif: 'Merriweather', serif;
+  --font-mono: 'Source Code Pro', monospace;
+  
+  /* Layout */
+  --radius: 0.5rem;
+  
+  /* Custom earth tone variables */
+  --earth-sand: 245 240 225; /* #f5f0e1 - Sand */
+  --earth-clay: 218 165 120; /* #daa578 - Clay */
+  --earth-moss: 76 111 74; /* #4c6f4a - Moss */
+  --earth-stone: 166 155 142; /* #a69b8e - Stone */
+  --earth-bark: 101 67 33; /* #654321 - Bark */
+  
+  /* Semantic colors */
+  --success: 34 197 94; /* #22c55e - Green */
+  --warning: 245 158 11; /* #f59e0b - Amber */
+  --info: 59 130 246; /* #3b82f6 - Blue */
+  
+  /* Animation and transitions */
+  --transition-duration: 200ms;
+  --transition-timing: cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* Dark Theme */
+.dark {
+  --background: 145 15 12; /* #1c2a1f - Deep forest */
+  --foreground: 210 10 98; /* #f8fafc - Light gray */
+  
+  --card: 147 7 15; /* #223025 - Dark green-gray */
+  --card-foreground: 210 10 98; /* #f8fafc - Light gray */
+  
+  --popover: 147 7 15; /* #223025 - Dark green-gray */
+  --popover-foreground: 210 10 98; /* #f8fafc - Light gray */
+  
+  --primary: 125 39 55; /* #4caf50 - Bright green */
+  --primary-foreground: 145 15 12; /* #1c2a1f - Deep forest */
+  
+  --secondary: 143 5 24; /* #3e4a3d - Dark green-gray */
+  --secondary-foreground: 117 34 79; /* #c8e6c9 - Pale green */
+  
+  --muted: 147 7 17; /* #29372c - Dark muted green */
+  --muted-foreground: 210 10 64; /* #9ca3af - Light gray */
+  
+  --accent: 125 39 40; /* #388e3c - Medium green */
+  --accent-foreground: 210 10 98; /* #f8fafc - Light gray */
+  
+  --destructive: 0 84 60; /* #ef4444 - Light red */
+  --destructive-foreground: 210 10 98; /* #f8fafc - Light gray */
+  
+  --border: 143 5 20; /* #303e33 - Dark border */
+  --input: 143 5 20; /* #303e33 - Dark border */
+  --ring: 125 39 55; /* #4caf50 - Bright green */
+  
+  /* Chart colors for dark theme */
+  --chart-1: 125 39 55;
+  --chart-2: 125 39 40;
+  --chart-3: 117 34 79;
+  --chart-4: 143 5 20;
+  --chart-5: 147 7 15;
+  
+  /* Sidebar colors for dark theme */
+  --sidebar-background: 145 15 12;
+  --sidebar-foreground: 210 10 98;
+  --sidebar-primary: 125 39 55;
+  --sidebar-primary-foreground: 145 15 12;
+  --sidebar-accent: 125 39 40;
+  --sidebar-accent-foreground: 210 10 98;
+  --sidebar-border: 143 5 18;
+  --sidebar-ring: 125 39 55;
+  
+  /* Custom earth tone variables for dark theme */
+  --earth-sand: 55 69 58; /* #37453a - Dark sand */
+  --earth-clay: 89 64 45; /* #59402d - Dark clay */
+  --earth-moss: 96 131 94; /* #60835e - Dark moss */
+  --earth-stone: 86 93 99; /* #565d63 - Dark stone */
+  --earth-bark: 131 97 63; /* #83613f - Dark bark */
+}
+
+/* Base styles */
+* {
+  border-color: hsl(var(--border));
+}
+
+body {
+  background-color: hsl(var(--background));
+  color: hsl(var(--foreground));
+  font-family: var(--font-sans);
+  transition: background-color var(--transition-duration) var(--transition-timing),
+              color var(--transition-duration) var(--transition-timing);
+}
+
+/* Typography hierarchy */
+h1, h2, h3, h4, h5, h6 {
+  font-family: var(--font-sans);
+  font-weight: 600;
+  line-height: 1.2;
+}
+
+.font-serif {
+  font-family: var(--font-serif);
+}
+
+.font-mono {
+  font-family: var(--font-mono);
+}
+
+/* Custom utility classes */
+.text-earth-sand {
+  color: hsl(var(--earth-sand));
+}
+
+.text-earth-clay {
+  color: hsl(var(--earth-clay));
+}
+
+.text-earth-moss {
+  color: hsl(var(--earth-moss));
+}
+
+.text-earth-stone {
+  color: hsl(var(--earth-stone));
+}
+
+.text-earth-bark {
+  color: hsl(var(--earth-bark));
+}
+
+.bg-earth-sand {
+  background-color: hsl(var(--earth-sand));
+}
+
+.bg-earth-clay {
+  background-color: hsl(var(--earth-clay));
+}
+
+.bg-earth-moss {
+  background-color: hsl(var(--earth-moss));
+}
+
+.bg-earth-stone {
+  background-color: hsl(var(--earth-stone));
+}
+
+.bg-earth-bark {
+  background-color: hsl(var(--earth-bark));
+}
+
+/* Chat-specific styles */
+.chat-message-bubble {
+  border-radius: var(--radius);
+  padding: 0.75rem 1rem;
+  max-width: 80%;
+  word-wrap: break-word;
+  transition: all var(--transition-duration) var(--transition-timing);
+}
+
+.chat-message-user {
+  background-color: hsl(var(--primary));
+  color: hsl(var(--primary-foreground));
+  margin-left: auto;
+}
+
+.chat-message-assistant {
+  background-color: hsl(var(--card));
+  color: hsl(var(--card-foreground));
+  border: 1px solid hsl(var(--border));
+}
+
+.chat-message-interim {
+  background-color: hsl(var(--accent));
+  color: hsl(var(--accent-foreground));
+  border: 2px dashed hsl(var(--warning));
+  opacity: 0.8;
+}
+
+/* Sidebar styles - Remove borders */
+.sidebar-item {
+  transition: all var(--transition-duration) var(--transition-timing);
+  border-radius: calc(var(--radius) - 2px);
+  border: none;
+}
+
+.sidebar-item:hover {
+  background-color: hsl(var(--accent) / 0.8);
+}
+
+.sidebar-item-active {
+  background-color: hsl(var(--primary) / 0.1);
+  color: hsl(var(--primary));
+  border-left: 3px solid hsl(var(--primary));
+}
+
+/* Input styles */
+.chat-input {
+  background-color: hsl(var(--card));
+  border: 1px solid hsl(var(--border));
+  border-radius: var(--radius);
+  transition: all var(--transition-duration) var(--transition-timing);
+}
+
+.chat-input:focus {
+  outline: none;
+  border-color: hsl(var(--ring));
+  box-shadow: 0 0 0 2px hsl(var(--ring) / 0.2);
+}
+
+/* Button enhancements */
+.btn-earth {
+  background: linear-gradient(135deg, hsl(var(--primary)), hsl(var(--accent)));
+  color: hsl(var(--primary-foreground));
+  border: none;
+  transition: all var(--transition-duration) var(--transition-timing);
+}
+
+.btn-earth:hover {
+  background: linear-gradient(135deg, hsl(var(--primary) / 0.9), hsl(var(--accent) / 0.9));
+  transform: translateY(-1px);
+  box-shadow: 0 4px 8px hsl(var(--primary) / 0.2);
+}
+
+/* Loading animations */
+.loading-pulse {
+  animation: pulse 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+}
+
+@keyframes pulse {
+  0%, 100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.5;
+  }
+}
+
+/* Streaming message animation */
+.streaming-indicator {
+  animation: streaming 1.5s ease-in-out infinite;
+}
+
+@keyframes streaming {
+  0%, 100% {
+    opacity: 0.4;
+  }
+  50% {
+    opacity: 1;
+  }
+}
+
+/* Code block styling */
+pre, code {
+  font-family: var(--font-mono);
+  background-color: hsl(var(--muted));
+  border-radius: calc(var(--radius) - 2px);
+  font-size: 0.875rem;
+}
+
+pre {
+  padding: 1rem;
+  overflow-x: auto;
+  border: 1px solid hsl(var(--border));
+}
+
+:not(pre) > code {
+  padding: 0.125rem 0.25rem;
+  font-size: 0.875em;
+}
+
+/* Responsive design */
+@media (max-width: 768px) {
+  .chat-message-bubble {
+    max-width: 95%;
+  }
+  
+  .sidebar-collapsed {
+    transform: translateX(-100%);
+  }
+}
+
+/* Dark mode specific adjustments */
+.dark .chat-input {
+  background-color: hsl(var(--card));
+}
+
+.dark code, .dark pre {
+  background-color: hsl(var(--muted));
+  color: hsl(var(--muted-foreground));
+}
+
+/* Scrollbar styling */
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: hsl(var(--muted));
+  border-radius: var(--radius);
+}
+
+::-webkit-scrollbar-thumb {
+  background: hsl(var(--border));
+  border-radius: var(--radius);
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: hsl(var(--muted-foreground));
+}
+
+/* Focus states for accessibility */
+.focus-visible {
+  outline: 2px solid hsl(var(--ring));
+  outline-offset: 2px;
+}
+
+/* Chart and data visualization */
+.chart-container {
+  background-color: hsl(var(--card));
+  border: 1px solid hsl(var(--border));
+  border-radius: var(--radius);
+  padding: 1rem;
+}
+
+/* Toast notifications */
+.toast {
+  background-color: hsl(var(--card));
+  border: 1px solid hsl(var(--border));
+  color: hsl(var(--card-foreground));
+  border-radius: var(--radius);
+  box-shadow: 0 4px 12px hsl(var(--foreground) / 0.1);
+}
+
+.toast-success {
+  border-left: 4px solid hsl(var(--success));
+}
+
+.toast-error {
+  border-left: 4px solid hsl(var(--destructive));
+}
+
+.toast-warning {
+  border-left: 4px solid hsl(var(--warning));
+}
+
+.toast-info {
+  border-left: 4px solid hsl(var(--info));
+}
+
+/* Remove unwanted borders from sidebar */
+[data-sidebar="sidebar"] {
+  border: none !important;
+  box-shadow: none !important;
+}
+
+.group-data-\\[side\\=left\\]\\:border-r {
+  border-right: none !important;
+}
+
+.group-data-\\[side\\=right\\]\\:border-l {
+  border-left: none !important;
+}
+
+/* Remove default sidebar borders */
+.group-data-\\[variant\\=floating\\]\\:border,
+.group-data-\\[variant\\=floating\\]\\:border-sidebar-border {
+  border: none !important;
+}
+
+/* Fix sidebar background and remove shadow */
+.group-data-\\[variant\\=floating\\]\\:rounded-lg {
+  box-shadow: none !important;
+}
+
+/* Additional border removal */
+.peer.hidden.md\\:block {
+  border: none !important;
+}
+
+.peer.hidden.md\\:block .group-data-\\[side\\=left\\]\\:border-r {
+  border-right: none !important;
+}
+
+/* Remove separator lines */
+.h-4.w-px.bg-sidebar-border {
+  display: none !important;
+}
+
+/* Improve contrast for better readability */
+.text-sidebar-foreground {
+  color: hsl(var(--sidebar-foreground)) !important;
+}
+
+.bg-sidebar {
+  background-color: hsl(var(--sidebar-background)) !important;
+}
+
+.text-sidebar-primary {
+  color: hsl(var(--sidebar-primary)) !important;
+}
+
+.bg-sidebar-primary {
+  background-color: hsl(var(--sidebar-primary)) !important;
+}
+
+.text-sidebar-accent-foreground {
+  color: hsl(var(--sidebar-accent-foreground)) !important;
+}
+
+.bg-sidebar-accent {
+  background-color: hsl(var(--sidebar-accent)) !important;
+}

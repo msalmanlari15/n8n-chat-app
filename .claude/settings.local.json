@@ -1,0 +1,36 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(grep:*)",
+      "Bash(ls:*)",
+      "Bash(source:*)",
+      "Bash(find:*)",
+      "Bash(mv:*)",
+      "Bash(mkdir:*)",
+      "Bash(tree:*)",
+      "Bash(ruff:*)",
+      "Bash(touch:*)",
+      "Bash(cat:*)",
+      "Bash(ruff check:*)",
+      "Bash(pytest:*)",
+      "Bash(python:*)",
+      "Bash(python -m pytest:*)",
+      "Bash(python3 -m pytest:*)",
+      "WebFetch(domain:docs.anthropic.com)",
+      "Bash(npm install:*)",
+      "Bash(npx shadcn@latest add:*)",
+      "WebFetch(domain:ui.shadcn.com)",
+      "Bash(npm run type-check:*)",
+      "Bash(npm test:*)",
+      "Bash(curl:*)",
+      "Bash(claude mcp add:*)",
+      "Bash(claude mcp:*)",
+      "Bash(where claude)",
+      "Bash(claude --version)",
+      "Bash(npm run test:*)",
+      "Bash(npx localtunnel:*)",
+      "Bash(powershell:*)"
+    ],
+    "deny": []
+  }
+}
