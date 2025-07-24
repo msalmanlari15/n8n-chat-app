@@ -1,0 +1,418 @@
+/**
+ * Global CSS with Earth-toned Design System
+ * Custom CSS variables for light/dark theme support
+ */
+
+@import 'tailwindcss/base';
+@import 'tailwindcss/components';
+@import 'tailwindcss/utilities';
+
+/* Font imports */
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Merriweather:wght@400;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Source+Code+Pro:wght@400;500;600&display=swap');
+
+/* CSS Variables for Theme System */
+:root {
+  /* Earth-toned Light Theme */
+  --background: 248 245 240; /* #f8f5f0 - Warm beige */
+  --foreground: 28 20 16; /* #1c1410 - Dark brown */
+  
+  --card: 255 253 250; /* #fffdfA - Off white */
+  --card-foreground: 28 20 16; /* #1c1410 - Dark brown */
+  
+  --popover: 255 253 250; /* #fffdfA - Off white */
+  --popover-foreground: 28 20 16; /* #1c1410 - Dark brown */
+  
+  --primary: 46 125 50; /* #2e7d32 - Forest green */
+  --primary-foreground: 255 255 255; /* White */
+  
+  --secondary: 232 245 233; /* #e8f5e9 - Light green */
+  --secondary-foreground: 46 125 50; /* #2e7d32 - Forest green */
+  
+  --muted: 243 240 235; /* #f3f0eb - Light beige */
+  --muted-foreground: 92 83 74; /* #5c534a - Medium brown */
+  
+  --accent: 200 230 201; /* #c8e6c9 - Pale green */
+  --accent-foreground: 46 125 50; /* #2e7d32 - Forest green */
+  
+  --destructive: 220 38 38; /* #dc2626 - Red */
+  --destructive-foreground: 255 255 255; /* White */
+  
+  --border: 229 220 211; /* #e5dcd3 - Light brown */
+  --input: 229 220 211; /* #e5dcd3 - Light brown */
+  --ring: 46 125 50; /* #2e7d32 - Forest green */
+  
+  /* Custom earth tone variables */
+  --earth-sand: 245 240 225; /* #f5f0e1 - Sand */
+  --earth-clay: 218 165 120; /* #daa578 - Clay */
+  --earth-moss: 76 111 74; /* #4c6f4a - Moss */
+  --earth-stone: 166 155 142; /* #a69b8e - Stone */
+  --earth-bark: 101 67 33; /* #654321 - Bark */
+  
+  /* Semantic colors */
+  --success: 34 197 94; /* #22c55e - Green */
+  --warning: 245 158 11; /* #f59e0b - Amber */
+  --info: 59 130 246; /* #3b82f6 - Blue */
+  
+  /* Sidebar specific */
+  --sidebar-background: var(--background);
+  --sidebar-foreground: var(--foreground);
+  --sidebar-primary: var(--primary);
+  --sidebar-primary-foreground: var(--primary-foreground);
+  --sidebar-accent: var(--accent);
+  --sidebar-accent-foreground: var(--accent-foreground);
+  --sidebar-border: var(--border);
+  --sidebar-ring: var(--ring);
+  
+  /* Animation and transitions */
+  --radius: 0.5rem;
+  --transition-duration: 200ms;
+  --transition-timing: cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* Dark Theme */
+.dark {
+  --background: 28 42 31; /* #1c2a1f - Deep forest */
+  --foreground: 248 250 252; /* #f8fafc - Light gray */
+  
+  --card: 34 48 37; /* #223025 - Dark green-gray */
+  --card-foreground: 248 250 252; /* #f8fafc - Light gray */
+  
+  --popover: 34 48 37; /* #223025 - Dark green-gray */
+  --popover-foreground: 248 250 252; /* #f8fafc - Light gray */
+  
+  --primary: 76 175 80; /* #4caf50 - Bright green */
+  --primary-foreground: 28 42 31; /* #1c2a1f - Deep forest */
+  
+  --secondary: 62 74 61; /* #3e4a3d - Dark green-gray */
+  --secondary-foreground: 200 230 201; /* #c8e6c9 - Pale green */
+  
+  --muted: 41 55 44; /* #29372c - Dark muted green */
+  --muted-foreground: 156 163 175; /* #9ca3af - Light gray */
+  
+  --accent: 56 142 60; /* #388e3c - Medium green */
+  --accent-foreground: 248 250 252; /* #f8fafc - Light gray */
+  
+  --destructive: 239 68 68; /* #ef4444 - Light red */
+  --destructive-foreground: 248 250 252; /* #f8fafc - Light gray */
+  
+  --border: 48 62 51; /* #303e33 - Dark border */
+  --input: 48 62 51; /* #303e33 - Dark border */
+  --ring: 76 175 80; /* #4caf50 - Bright green */
+  
+  /* Custom earth tone variables for dark theme */
+  --earth-sand: 55 69 58; /* #37453a - Dark sand */
+  --earth-clay: 89 64 45; /* #59402d - Dark clay */
+  --earth-moss: 96 131 94; /* #60835e - Dark moss */
+  --earth-stone: 86 93 99; /* #565d63 - Dark stone */
+  --earth-bark: 131 97 63; /* #83613f - Dark bark */
+  
+  /* Sidebar specific for dark theme */
+  --sidebar-background: var(--background);
+  --sidebar-foreground: var(--foreground);
+  --sidebar-primary: var(--primary);
+  --sidebar-primary-foreground: var(--primary-foreground);
+  --sidebar-accent: var(--accent);
+  --sidebar-accent-foreground: var(--accent-foreground);
+  --sidebar-border: var(--border);
+  --sidebar-ring: var(--ring);
+}
+
+/* Base styles */
+* {
+  border-color: hsl(var(--border));
+}
+
+body {
+  background-color: hsl(var(--background));
+  color: hsl(var(--foreground));
+  font-family: 'Montserrat', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  transition: background-color var(--transition-duration) var(--transition-timing),
+              color var(--transition-duration) var(--transition-timing);
+}
+
+/* Typography hierarchy */
+h1, h2, h3, h4, h5, h6 {
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 600;
+  line-height: 1.2;
+}
+
+.font-serif {
+  font-family: 'Merriweather', serif;
+}
+
+.font-mono {
+  font-family: 'Source Code Pro', monospace;
+}
+
+/* Custom utility classes */
+.text-earth-sand {
+  color: hsl(var(--earth-sand));
+}
+
+.text-earth-clay {
+  color: hsl(var(--earth-clay));
+}
+
+.text-earth-moss {
+  color: hsl(var(--earth-moss));
+}
+
+.text-earth-stone {
+  color: hsl(var(--earth-stone));
+}
+
+.text-earth-bark {
+  color: hsl(var(--earth-bark));
+}
+
+.bg-earth-sand {
+  background-color: hsl(var(--earth-sand));
+}
+
+.bg-earth-clay {
+  background-color: hsl(var(--earth-clay));
+}
+
+.bg-earth-moss {
+  background-color: hsl(var(--earth-moss));
+}
+
+.bg-earth-stone {
+  background-color: hsl(var(--earth-stone));
+}
+
+.bg-earth-bark {
+  background-color: hsl(var(--earth-bark));
+}
+
+/* Chat-specific styles */
+.chat-message-bubble {
+  border-radius: var(--radius);
+  padding: 0.75rem 1rem;
+  max-width: 80%;
+  word-wrap: break-word;
+  transition: all var(--transition-duration) var(--transition-timing);
+}
+
+.chat-message-user {
+  background-color: hsl(var(--primary));
+  color: hsl(var(--primary-foreground));
+  margin-left: auto;
+}
+
+.chat-message-assistant {
+  background-color: hsl(var(--card));
+  color: hsl(var(--card-foreground));
+  border: 1px solid hsl(var(--border));
+}
+
+.chat-message-interim {
+  background-color: hsl(var(--accent));
+  color: hsl(var(--accent-foreground));
+  border: 2px dashed hsl(var(--warning));
+  opacity: 0.8;
+}
+
+/* Sidebar styles */
+.sidebar-item {
+  transition: all var(--transition-duration) var(--transition-timing);
+  border-radius: calc(var(--radius) - 2px);
+}
+
+.sidebar-item:hover {
+  background-color: hsl(var(--accent) / 0.8);
+}
+
+.sidebar-item-active {
+  background-color: hsl(var(--primary) / 0.1);
+  color: hsl(var(--primary));
+  border-left: 3px solid hsl(var(--primary));
+}
+
+/* Input styles */
+.chat-input {
+  background-color: hsl(var(--card));
+  border: 1px solid hsl(var(--border));
+  border-radius: var(--radius);
+  transition: all var(--transition-duration) var(--transition-timing);
+}
+
+.chat-input:focus {
+  outline: none;
+  border-color: hsl(var(--ring));
+  box-shadow: 0 0 0 2px hsl(var(--ring) / 0.2);
+}
+
+/* Button enhancements */
+.btn-earth {
+  background: linear-gradient(135deg, hsl(var(--primary)), hsl(var(--accent)));
+  color: hsl(var(--primary-foreground));
+  border: none;
+  transition: all var(--transition-duration) var(--transition-timing);
+}
+
+.btn-earth:hover {
+  background: linear-gradient(135deg, hsl(var(--primary) / 0.9), hsl(var(--accent) / 0.9));
+  transform: translateY(-1px);
+  box-shadow: 0 4px 8px hsl(var(--primary) / 0.2);
+}
+
+/* Loading animations */
+.loading-pulse {
+  animation: pulse 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+}
+
+@keyframes pulse {
+  0%, 100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.5;
+  }
+}
+
+.loading-dots::after {
+  content: '';
+  animation: dots 1.5s steps(5, end) infinite;
+}
+
+@keyframes dots {
+  0%, 20% {
+    color: rgba(0, 0, 0, 0);
+    text-shadow:
+      .25em 0 0 rgba(0, 0, 0, 0),
+      .5em 0 0 rgba(0, 0, 0, 0);
+  }
+  40% {
+    color: hsl(var(--primary));
+    text-shadow:
+      .25em 0 0 rgba(0, 0, 0, 0),
+      .5em 0 0 rgba(0, 0, 0, 0);
+  }
+  60% {
+    text-shadow:
+      .25em 0 0 hsl(var(--primary)),
+      .5em 0 0 rgba(0, 0, 0, 0);
+  }
+  80%, 100% {
+    text-shadow:
+      .25em 0 0 hsl(var(--primary)),
+      .5em 0 0 hsl(var(--primary));
+  }
+}
+
+/* Streaming message animation */
+.streaming-indicator {
+  animation: streaming 1.5s ease-in-out infinite;
+}
+
+@keyframes streaming {
+  0%, 100% {
+    opacity: 0.4;
+  }
+  50% {
+    opacity: 1;
+  }
+}
+
+/* Code block styling */
+pre, code {
+  font-family: 'Source Code Pro', monospace;
+  background-color: hsl(var(--muted));
+  border-radius: calc(var(--radius) - 2px);
+  font-size: 0.875rem;
+}
+
+pre {
+  padding: 1rem;
+  overflow-x: auto;
+  border: 1px solid hsl(var(--border));
+}
+
+:not(pre) > code {
+  padding: 0.125rem 0.25rem;
+  font-size: 0.875em;
+}
+
+/* Responsive design */
+@media (max-width: 768px) {
+  .chat-message-bubble {
+    max-width: 95%;
+  }
+  
+  .sidebar-collapsed {
+    transform: translateX(-100%);
+  }
+}
+
+/* Dark mode specific adjustments */
+.dark .chat-input {
+  background-color: hsl(var(--card));
+}
+
+.dark code, .dark pre {
+  background-color: hsl(var(--muted));
+  color: hsl(var(--muted-foreground));
+}
+
+/* Scrollbar styling */
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: hsl(var(--muted));
+  border-radius: var(--radius);
+}
+
+::-webkit-scrollbar-thumb {
+  background: hsl(var(--border));
+  border-radius: var(--radius);
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: hsl(var(--muted-foreground));
+}
+
+/* Focus states for accessibility */
+.focus-visible {
+  outline: 2px solid hsl(var(--ring));
+  outline-offset: 2px;
+}
+
+/* Chart and data visualization */
+.chart-container {
+  background-color: hsl(var(--card));
+  border: 1px solid hsl(var(--border));
+  border-radius: var(--radius);
+  padding: 1rem;
+}
+
+/* Toast notifications */
+.toast {
+  background-color: hsl(var(--card));
+  border: 1px solid hsl(var(--border));
+  color: hsl(var(--card-foreground));
+  border-radius: var(--radius);
+  box-shadow: 0 4px 12px hsl(var(--foreground) / 0.1);
+}
+
+.toast-success {
+  border-left: 4px solid hsl(var(--success));
+}
+
+.toast-error {
+  border-left: 4px solid hsl(var(--destructive));
+}
+
+.toast-warning {
+  border-left: 4px solid hsl(var(--warning));
+}
+
+.toast-info {
+  border-left: 4px solid hsl(var(--info));
+}

@@ -1,0 +1,282 @@
+# n8n Chat App
+
+A modern chat application built with Next.js 14+, featuring real-time messaging, chart visualization capabilities, and comprehensive testing infrastructure.
+
+## Features
+
+### Core Chat Functionality
+- **Real-time messaging** with n8n webhook integration
+- **Session persistence** using MockAPI with localStorage fallback
+- **Responsive design** with collapsible sidebar interface
+- **Message history** with session management
+- **Error handling** with graceful recovery
+
+### Chart Integration
+- **Interactive charts** using Recharts library
+- **Multiple chart types**: Bar, Line, Pie, Area, and Scatter charts
+- **Chart controls**: Expand/collapse, copy data, download JSON, fullscreen mode
+- **Data validation** with comprehensive error handling
+- **Responsive design** with mobile-first approach
+
+### Response Rendering
+- **Multiple content types**: Text, JSON, Images, Charts
+- **Markdown support** for rich text formatting
+- **Copy functionality** for text and JSON responses
+- **Image handling** with loading states and error fallbacks
+
+## Tech Stack
+
+- **Framework**: Next.js 14+ with App Router
+- **Language**: TypeScript with full type safety
+- **Styling**: Tailwind CSS with custom earth-toned design system
+- **UI Components**: ShadCN UI components
+- **Charts**: Recharts for interactive data visualization
+- **Testing**: Jest + React Testing Library
+- **State Management**: React Context API
+- **API Integration**: n8n webhooks + MockAPI
+
+## Dependencies
+
+### Core Dependencies
+- `next` ^15.4.1 - React framework
+- `react` ^19.1.0 - UI library
+- `typescript` ^5.0.0 - Type safety
+- `tailwindcss` ^3.3.0 - CSS framework
+- `recharts` ^3.1.0 - Chart library
+- `react-markdown` ^10.1.0 - Markdown rendering
+- `lucide-react` ^0.294.0 - Icons
+
+### Development Dependencies
+- `jest` ^29.0.0 - Testing framework
+- `@testing-library/react` ^13.4.0 - React testing utilities
+- `@testing-library/jest-dom` ^6.0.0 - DOM testing matchers
+- `eslint` ^8.0.0 - Code linting
+
+## Getting Started
+
+### Prerequisites
+- Node.js 18.x or later
+- npm or yarn package manager
+
+### Installation
+
+1. Clone the repository:
+```bash
+git clone https://github.com/msalmanlari15/n8n-chat-app.git
+cd n8n-chat-app
+```
+
+2. Install dependencies:
+```bash
+npm install
+# or
+yarn install
+```
+
+3. Set up environment variables:
+```bash
+cp .env.example .env.local
+```
+
+Configure the following environment variables:
+```env
+N8N_WEBHOOK_URL=your_n8n_webhook_url
+N8N_STREAMING_URL=your_n8n_streaming_url
+MOCKAPI_BASE_URL=your_mockapi_base_url
+MOCKAPI_PROJECT_ID=your_mockapi_project_id
+```
+
+4. Run the development server:
+```bash
+npm run dev
+# or
+yarn dev
+```
+
+5. Open [http://localhost:3000](http://localhost:3000) in your browser.
+
+## Testing
+
+The project includes comprehensive test coverage for all components and functionality.
+
+### Run Tests
+```bash
+# Run all tests
+npm test
+
+# Run tests in watch mode
+npm run test:watch
+
+# Run chart-specific tests
+npm test -- --testPathPattern="chart"
+
+# Run with coverage
+npm test -- --coverage
+```
+
+### Test Structure
+- `__tests__/components/` - Component unit tests
+- `__tests__/lib/` - Utility function tests
+- `__tests__/context/` - Context API tests
+- `__tests__/integration/` - Integration tests
+
+### Chart Testing
+- **Unit tests** for individual chart components (Bar, Line, Pie, Area)
+- **Integration tests** for chart rendering through ResponseRenderer
+- **Mock n8n responses** for realistic chart data scenarios
+- **Error handling tests** for invalid chart data
+
+## Chart Integration
+
+### Supported Chart Types
+- **Bar Chart**: For categorical data comparison
+- **Line Chart**: For time series and trend data
+- **Pie Chart**: For proportional data display
+- **Area Chart**: For filled area under line charts
+- **Scatter Chart**: Rendered as line chart (can be enhanced)
+
+### Chart Data Format
+```typescript
+interface ChartData {
+  type: 'bar' | 'line' | 'pie' | 'area' | 'scatter'
+  title?: string
+  data: any[]
+  xKey?: string
+  yKey?: string
+  options?: ChartOptions
+}
+```
+
+### Chart Options
+```typescript
+interface ChartOptions {
+  colors?: string[]
+  showLegend?: boolean
+  showTooltip?: boolean
+  showGrid?: boolean
+  responsive?: boolean
+  width?: number
+  height?: number
+  margin?: { top: number; right: number; bottom: number; left: number }
+}
+```
+
+### Example Usage
+```javascript
+// Bar chart response from n8n
+{
+  type: 'chart',
+  content: {
+    type: 'bar',
+    title: 'Monthly Sales',
+    data: [
+      { month: 'Jan', sales: 100 },
+      { month: 'Feb', sales: 150 },
+      { month: 'Mar', sales: 200 }
+    ],
+    xKey: 'month',
+    yKey: 'sales',
+    options: {
+      colors: ['#2563eb'],
+      showLegend: true
+    }
+  }
+}
+```
+
+## Project Structure
+
+```
+app/                    # Next.js App Router pages
+components/             # React components
+   charts/            # Chart components
+      BarChart.tsx
+      LineChart.tsx
+      PieChart.tsx
+      AreaChart.tsx
+      ChartRenderer.tsx
+      ChartError.tsx
+   chat/              # Chat components
+   ui/                # ShadCN UI components
+context/               # React Context providers
+hooks/                 # Custom React hooks
+lib/                   # Utility functions
+types/                 # TypeScript type definitions
+__tests__/             # Test files
+public/                # Static assets
+```
+
+## Build & Deployment
+
+### Development Build
+```bash
+npm run build
+```
+
+### Type Checking
+```bash
+npm run type-check
+```
+
+### Linting
+```bash
+npm run lint
+```
+
+### Production Start
+```bash
+npm start
+```
+
+## AI Integration
+
+The application integrates with n8n workflows for AI-powered responses and includes:
+
+- **Webhook endpoints** for receiving AI responses
+- **Streaming support** for real-time updates
+- **Chart generation** from AI-processed data
+- **Error handling** for AI service failures
+- **Fallback mechanisms** for offline scenarios
+
+## Development Guidelines
+
+Following the project's CLAUDE.md guidelines:
+
+- **Modular architecture** with components under 500 lines
+- **Comprehensive testing** for all new features
+- **TypeScript** with full type safety
+- **Responsive design** with mobile-first approach
+- **Accessibility compliance** with ARIA labels
+- **Error handling** with graceful recovery
+
+## Contributing
+
+1. Follow the coding standards outlined in `CLAUDE.md`
+2. Write tests for new features
+3. Update documentation when adding features
+4. Use the established project structure
+5. Maintain TypeScript type safety
+
+## Recent Updates
+
+### Chart Integration (Latest)
+- Added Recharts library for interactive charts
+- Implemented Bar, Line, Pie, and Area chart components
+- Created comprehensive chart validation and error handling
+- Added 68 chart-related tests with 100% pass rate
+- Integrated charts into ResponseRenderer for n8n responses
+- Added chart controls (expand/collapse, copy, download, fullscreen)
+
+### Testing Infrastructure
+- Set up Jest and React Testing Library
+- Created comprehensive test suite for all components
+- Added integration tests for chart functionality
+- Implemented proper mocking strategies for external dependencies
+
+## Known Issues
+
+None currently. All tests passing.
+
+## License
+
+This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
